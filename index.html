@@ -28,7 +28,13 @@
 
             <p class="error text-danger"></p>
         </form>
-        <button class="btn btn-primary" ddata-bs-toggle="modal" data-bs-target="#registrarmodal">Registrate</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#registrarmodal">Registrate</button>
+        <div class="row">
+            <div class="col-12 text-center">
+                <span onclick="entrarGoogle()" class="btn btn-danger">Ingresar con google</span>
+            </div>
+        </div>
     </div>
 
     <!-- MODAL REGISTRARSE -->
@@ -40,33 +46,33 @@
                     <h5 class="modal-title">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="formaregistrar">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                        <input type="text" id="rnombre" required class="form-control" placeholder="Ingresa tu nombre">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Correo</label>
-                        <input type="email" id="rcorreo" required class="form-control" placeholder="Ingresa tu correo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-                        <input type="password" id="rcontrasena" required class="form-control"
-                            placeholder="Ingresa tu contraseña">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Estado</label>
-                        <input type="number" step="any" id="restado" required class="form-control"
-                            placeholder="Ingresa tu estado">
-                    </div>
-                    <div class="col-12 text-center">
-                        <input type="submit" class="btn btn-primary" value="Regitrarse">
-                        <p class="error text-danger"></p>
-                    </div>
-                </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="container">
+                    <form id="formaregistrar">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                            <input type="text" id="rnombre" required class="form-control"
+                                placeholder="Ingresa tu nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Correo</label>
+                            <input type="email" id="rcorreo" required class="form-control"
+                                placeholder="Ingresa tu correo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+                            <input type="password" id="rcontrasena" required class="form-control"
+                                placeholder="Ingresa tu contraseña">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Estado</label>
+                            <input type="string" step="any" id="restado" required class="form-control"
+                                placeholder="Ingresa tu estado">
+                        </div>
+                        <div class="col-12 text-center">
+                            <input type="submit" class="btn btn-primary" value="Regitrarse">
+                            <p class="error text-danger"></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

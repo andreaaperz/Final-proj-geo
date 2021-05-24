@@ -33,7 +33,7 @@ function messageError(codigo) {
     return message;
 }
 
-/* const salir = document.getElementById("salir");
+/*const salir = document.getElementById("salir");
 salir.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut().then(() => {
@@ -62,3 +62,21 @@ formaregistrate.addEventListener('submit', (e) => {
         formaregistrate.querySelector('.error').innerHTML = messageError(err.code);
     });
 }); 
+
+entrarGoogle = () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        var token = result.credential.accessToken;
+
+        console.log(token);
+
+        var user = result.user;
+
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
