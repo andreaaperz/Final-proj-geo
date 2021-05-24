@@ -80,3 +80,21 @@ entrarGoogle = () => {
         console.log(error);
     })
 }
+
+entrarFacebook = () => {
+    var provider = new firebase.auth.FacebookAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        var token = result.credential.accessToken;
+
+        console.log(token);
+
+        var user = result.user;
+
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
