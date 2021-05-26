@@ -9,6 +9,7 @@ formaingresar.addEventListener('submit', (e) => {
         console.log("Entró");
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
+        window.location="home.html";
     }).catch(err => {
         console.log(err);
         formaingresar.querySelector('.error').innerHTML = messageError(err.code);
@@ -32,14 +33,6 @@ function messageError(codigo) {
     }
     return message;
 }
-
-/*const salir = document.getElementById("salir");
-salir.addEventListener('click', (e) => {
-    e.preventDefault();
-    auth.signOut().then(() => {
-        alert('Se ha cerrado sesión');
-    });
-}); */
 
 const formaregistrate = document.getElementById('formaregistrar');
 
