@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Industrias químicas",
+        "body": "Representan un cuarto del consumo industrial del agua, sin embargo, la mayoría permiten la reutilización en proceso del agua depurada.",
+        "image":"quimica.jpg"
+    },
+    {
+        "title": "Industrias agroalimentarias y explotaciones ganaderas",
+        "body": "Representan aproximadamente el 17%. Desde el proceso hasta el producto final.",
+        "image": "agro.jpg"
+    },
+    {
+        "title": "La producción y transformación de metales",
+        "body": "Representan el 13%. El uso del agua reside en su mayoría a los sistemas de refrigeración utilizados",
+        "image": "mining.jpg"
+    },
+    {
+        "title": "Las industrias minerales",
+        "body": "Con un 7% consumen agua en el proceso productivo para la generación de aguas de molienda y también por la alimentación de sistemas de refrigeración.",
+        "image": "mineral.jpg"
+    },
+    {
+        "title": "Las industrias relativas al consumo de disolventes orgánicos.",
+        "body": "Representan el 5%. Se utilizan para la elaboración de cosméticos, pinturas, madera, calzado, plasticos y caucho.",
+        "image":"cosmetics.jpg"
+    },
+    {
+        "title": "Diversas actividades productivas ",
+        "body": "Aquí se encuentran actividades tan diversas como electrónica, medicamentos y construcción, entre otros.",
+        "image" : "electronics.jpg"
+    }
+]
