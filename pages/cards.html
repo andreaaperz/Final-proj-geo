@@ -1,1 +1,60 @@
-<h1>PANCHO</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!--  <div class="container">
+        <div class="card bg-warning">
+            <div class="card-header"></div>
+
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function () {
+                $(".col:first").hide()
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/posts",
+                    success: function (result) {
+                        $.each(result, function (i, item) {
+                            var cards = $(".col:first").clone()
+                            $(cards).find(".card-title").html(item.title);
+                            $(cards).find(".card-text").html(item.body);
+                            $(cards).show() 
+                            $(cards).appendTo($(".row")) 
+                        });
+                    }
+                });
+            });
+        </script>
+
+</body>
+
+</html>

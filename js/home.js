@@ -12,10 +12,10 @@ salir.addEventListener('click', (e) => {
 
 $('.navbar').on("click", "#loadMapas", function (e) {
     e.preventDefault();
-    $('.prueba').load("pages/mapas.html");
+    $('#componentes').load("pages/mapas.html");
 });
 
 $('.navbar').on("click", "#loadTarjetas", function (e) {
     e.preventDefault();
-    $('.prueba').load("pages/cards.html");
+    $('#componentes').load("pages/cards.html");
 });
