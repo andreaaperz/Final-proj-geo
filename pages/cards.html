@@ -64,7 +64,7 @@
                 response.json().then(function (datos) {
                     datos.forEach(item => {
                         var cards = $(".col:first").clone()
-                        $(cards).find("#imagen").attr("src", "C:/Users/Dell/Documents/Proy-final-geo/img/" + item.image);
+                        $(cards).find("#imagen").attr("src", "./img/" + item.image);
                         $(cards).find(".card-title").html(item.title);
                         $(cards).find(".card-text").html(item.body);
                         $(cards).show()

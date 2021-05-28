@@ -9,71 +9,107 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <title>Proyecto final Andrea</title>
+
+    <style>
+        body {
+            background-image: radial-gradient(circle at 50% 50%, #a1b7c0 0, #779baa 50%, #4c7f95 100%);
+        }
+
+        .cuadro {
+            background-color: white;
+            border-radius: 6px;
+            margin-top: 10%;
+            box-shadow: 5px 10px 8px #368099;
+        }
+    </style>
 </head>
 
 <!-- FORM PARA INGRESAR -->
 
 <body>
-    <div class="container">
-        <form class="col-5" id="formaingresar">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="contrasena">
-            </div>
-            <button type="submit" class="btn btn-primary">Inicia sesión</button>
 
-            <p class="error text-danger"></p>
-        </form>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#registrarmodal">Registrate</button>
-        <div class="row">
-            <div class="col-12 text-center">
-                <span onclick="entrarGoogle()" class="btn btn-danger">Ingresar con google</span>
-                <span onclick="entrarFacebook()" class="btn btn-danger">Ingresar con Facebook</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL REGISTRARSE -->
-
-    <div class="modal" tabindex="-1" id="registrarmodal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="d-flex justify-content-center">
+        <div class="cuadro col-lg-5 col-md-10 col-sm-11 col-xs-12 ">
+            <div class="container">
+                <div class="col-12 text-center mt-3">
+                    <img src="./img/gota.png" alt="Logo" class="mt-2">
                 </div>
-                <div class="container">
-                    <form id="formaregistrar">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                            <input type="text" id="rnombre" required class="form-control"
-                                placeholder="Ingresa tu nombre">
+                <p class="fs-1 mt-2 my-3 mx-3 text-center">¡Bienvenid@!</p>
+
+                <div class="contianer-fluid">
+
+                    <form id="formaingresar">
+                        <div class="col">
+                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                            <input type="email" class="form-control mb-2" id="correo" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Correo</label>
-                            <input type="email" id="rcorreo" required class="form-control"
-                                placeholder="Ingresa tu correo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-                            <input type="password" id="rcontrasena" required class="form-control"
-                                placeholder="Ingresa tu contraseña">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Estado</label>
-                            <input type="string" step="any" id="restado" required class="form-control"
-                                placeholder="Ingresa tu estado">
+                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contrasena">
                         </div>
                         <div class="col-12 text-center">
-                            <input type="submit" class="btn btn-primary" value="Regitrarse">
-                            <p class="error text-danger"></p>
+                            <button type="submit" class=" btn btn-outline-dark col-4">Inicia sesión</button>
                         </div>
+
+                        <p class="error text-danger"></p>
                     </form>
+                </div>
+                <div class="col-12 text-center mb-3">
+                    <button type="button" class="btn btn-outline-dark col-4" data-bs-toggle="modal"
+                        data-bs-target="#registrarmodal">Regístrate</button>
+
+                </div>
+                <hr size="4" width="100%">
+                <div class="row">
+                    <div class="col-12 text-center mb-1">
+                        <span onclick="entrarGoogle()" class="btn mb-1"
+                            style="background-image: url(./img/google.png); width: 37px; height: 35px; background-repeat:no-repeat;"></span>
+                        <span onclick="entrarFacebook()" class="btn mb-1"
+                            style="background-image: url(./img/facebook.png); width: 37px; height: 35px; background-repeat:no-repeat;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- MODAL REGISTRARSE -->
+
+        <div class="modal" tabindex="-1" id="registrarmodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Registro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="container">
+                        <form id="formaregistrar">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                                <input type="text" id="rnombre" required class="form-control"
+                                    placeholder="Ingresa tu nombre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Correo</label>
+                                <input type="email" id="rcorreo" required class="form-control"
+                                    placeholder="Ingresa tu correo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+                                <input type="password" id="rcontrasena" required class="form-control"
+                                    placeholder="Ingresa tu contraseña">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Estado</label>
+                                <input type="string" step="any" id="restado" required class="form-control"
+                                    placeholder="Ingresa tu estado">
+                            </div>
+                            <div class="col-12 text-center">
+                                <input type="submit" class="btn btn-primary" value="Regitrarse">
+                                <p class="error text-danger"></p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
