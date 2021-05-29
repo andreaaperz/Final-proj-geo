@@ -18,7 +18,7 @@
             margin-right: 10%;
         }
 
-         body {
+        body {
             background-image: linear-gradient(135deg, #e3ebee 0, #b8ced7 50%, #8eb1c1 100%);
         }
 
@@ -34,10 +34,11 @@
             justify-content: center;
             color: white;
             font-weight: 600;
-        } 
+        }
     </style>
 
 </head>
+
 <body>
 
     <p class="fs-1 mt-2 my-3 col-12 mx-3 text-center">INDUSTRIAS QUE USAN MÁS AGUA</p>
@@ -57,7 +58,8 @@
     </div>
 
     <script>
-        $(".col:first").hide()
+        $(".col:first").hide();
+
         fetch('datos.json')
             .then(function (response) {
                 response.json().then(function (datos) {

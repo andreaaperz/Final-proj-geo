@@ -3,7 +3,7 @@ window.onload = function () {
         if (user){
             $('#componentes').load("pages/bitacora.html");
         } else {
-            window.location="indez.html";
+            window.location="index.html";
         }
     })
 };
