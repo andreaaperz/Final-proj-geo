@@ -1,3 +1,13 @@
+window.onload = function () {
+    auth.onAuthStateChanged( user =>{
+        if (user){
+            $('#componentes').load("pages/bitacora.html");
+        } else {
+            window.location="indez.html";
+        }
+    })
+};
+
 const salir = document.getElementById("salir");
 salir.addEventListener('click', (e) => {
     e.preventDefault();
@@ -18,4 +28,9 @@ $('.navbar').on("click", "#loadMapas", function (e) {
 $('.navbar').on("click", "#loadTarjetas", function (e) {
     e.preventDefault();
     $('#componentes').load("pages/cards.html");
+});
+
+$('.navbar').on("click", "#loadBitacora", function (e) {
+    e.preventDefault();
+    $('#componentes').load("pages/bitacora.html");
 });
