@@ -28,9 +28,14 @@ formulario.addEventListener('submit', (e) => {
     }
 
     var registro = new Registro(null, formulario.titulo.value, formulario.contenido.value, check1, check2, check3);
-    registro.agregar();
-    formulario.titulo.value = '';
-    formulario.contenido.value = '';
+    if (formulario.titulo.value || formulario.contenido.value) {
+        registro.agregar();
+        formulario.titulo.value = '';
+        formulario.contenido.value = '';
+        $(".form-check-input").prop("checked", false);
+    } else {
+        alert("Aunque sea llena el título y el contenido oye :c");
+    }
 });
 
 var pendienteslista = document.querySelector(".row");
@@ -41,7 +46,7 @@ db.collection('pendientes').onSnapshot(snapshot => {
         if (change.type == 'added') {
             muestraRegistros(change.doc);
         } else if (change.type == 'removed') {
-            $("#"+change.doc.id).remove();
+            $("#" + change.doc.id).remove();
         }
     });
 });
@@ -52,18 +57,32 @@ function muestraRegistros(doc) {
 
     $(".card2:first").hide();
 
-    var borrar = document.createElement("button");
-    borrar.className = "btn btn-danger m-3";
-    borrar.textContent = "Borrar";
-
     var cards2 = $(".card2:first").clone()
     $(cards2).attr("id", registro.id);
     $(cards2).find(".card-title").html(registro.titulo);
     $(cards2).find(".card-text").html(registro.contenido);
-    $(cards2).find("#item1").html(registro.check1);
-    $(cards2).find("#item2").html(registro.check2);
-    $(cards2).find("#item3").html(registro.check3);
-    $(cards2).find(".btn").on("click", (e) =>{
+    if (registro.check1 == true) {
+        $("#item1").css("color", "black");
+    } else {
+        $("#item1").css("color", "#cfcfcf");
+    }
+
+    if (registro.check2 == true) {
+        $("#item2").css("color", "black");
+    } else {
+        $("#item2").css("color", "#cfcfcf");
+    }
+
+    if (registro.check3 == true) {
+        $("#item3").css("color", "black");
+    } else {
+        $("#item3").css("color", "#cfcfcf");
+    }
+    
+    $(cards2).find("#item1").html("Me bañé en menos de 10 minutos");
+    $(cards2).find("#item2").html("No consumí carnes rojas");
+    $(cards2).find("#item3").html("Regué las plantas en la noche");
+    $(cards2).find(".btn").on("click", (e) => {
         e.preventDefault();
         console.log("hola from", registro.id)
         registro.borrar(registro.id);
