@@ -18,4 +18,8 @@ class Registro {
             check3: this.check3
         });
     }
+
+    borrar(id){                
+        db.collection('pendientes').doc(id).delete();
+    };
 }

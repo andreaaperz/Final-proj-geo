@@ -1,12 +1,11 @@
 window.onload = function () {
-    
+    $(".card2:first").hide();
 };
 
 const formulario = document.querySelector("#forma");
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(formulario.check1.value);
 
     var check1 = false;
     var check2 = false;
@@ -36,35 +35,49 @@ formulario.addEventListener('submit', (e) => {
     formulario.contenido.value = '';
 });
 
+const productoslista = document.querySelector("#row");
+
 db.collection('pendientes').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         if (change.type == 'added') {
             muestraRegistros(change.doc);
+        } else if (change.type == 'removed') {
+            console.log(change.doc.id);
+            let valorid = document.getElementById(change.doc.id);
+            productoslista.removeChild(valorid);
         }
-        /* else if(change.type=='removed'){
-                   console.log(change.doc.id);
-                   let valorid = document.getElementById(change.doc.id);
-                   productoslista.removeChild(valorid);
-               } */
     });
 });
 
-function muestraRegistros(doc) {
-    console.log("muestra registros");
-    var registro = new Registro(doc.id, doc.data().titulo, doc.data().contenido, doc.data().check1, doc.data().check2, doc.data().check3);
+const eliminar = document.querySelector("#eliminar");
 
-    console.log(registro.check1);
+
+
+function muestraRegistros(doc) {
+    var registro = new Registro(doc.id, doc.data().titulo, doc.data().contenido, doc.data().check1, doc.data().check2, doc.data().check3);
 
     $(".card2:first").hide();
 
+    let borrar = document.createElement("button");
+    borrar.className = "btn btn-danger m-3";
+    borrar.textContent = "Borrar";
+
     var cards2 = $(".card2:first").clone()
+    $(".btneliminar").attr("id", registro.id);
     $(cards2).find(".card-title").html(registro.titulo);
     $(cards2).find(".card-text").html(registro.contenido);
     $(cards2).find("#item1").html(registro.check1);
     $(cards2).find("#item2").html(registro.check2);
     $(cards2).find("#item3").html(registro.check3);
-    $(cards2).show()
-    $(cards2).appendTo($(".row"))
+    $(cards2).find(".btneliminar").append(borrar);
+    $(cards2).show();
+    $(cards2).appendTo($(".row"));
+
+    borrar.addEventListener('click', (e) => {
+        let id = e.target.parentElement.getAttribute("id");
+        registro.borrar(id);
+        console.log(id);
+    })
 
 }
