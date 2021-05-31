@@ -35,7 +35,7 @@ formulario.addEventListener('submit', (e) => {
     formulario.contenido.value = '';
 });
 
-var productoslista = document.querySelector("#card");
+var pendienteslista = document.querySelector(".row");
 
 db.collection('pendientes').onSnapshot(snapshot => {
     var changes = snapshot.docChanges();
@@ -45,8 +45,7 @@ db.collection('pendientes').onSnapshot(snapshot => {
         } else if (change.type == 'removed') {
             console.log(change.doc.id);
             var valorid = document.getElementById(change.doc.id);
-            productoslista.removeChild(valorid);
-            console.log(valorid);
+            pendienteslista.removeChild(valorid);
         }
     });
 });
@@ -63,7 +62,7 @@ function muestraRegistros(doc) {
 
     var cards2 = $(".card2:first").clone()
     $(".btneliminar").attr("id", registro.id);
-    $("#card").attr("id", registro.id);
+    $(cards2).attr("id", registro.id);
     $(cards2).find(".card-title").html(registro.titulo);
     $(cards2).find(".card-text").html(registro.contenido);
     $(cards2).find("#item1").html(registro.check1);

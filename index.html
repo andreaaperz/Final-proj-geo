@@ -7,6 +7,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Proyecto final Andrea</title>
 
@@ -69,53 +70,44 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- MODAL REGISTRARSE -->
 
-
-        <!-- MODAL REGISTRARSE -->
-
-        <div class="modal" tabindex="-1" id="registrarmodal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Registro</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="container">
-                        <form id="formaregistrar">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                <input type="text" id="rnombre" required class="form-control"
-                                    placeholder="Ingresa tu nombre">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                <input type="email" id="rcorreo" required class="form-control"
-                                    placeholder="Ingresa tu correo">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-                                <input type="password" id="rcontrasena" required class="form-control"
-                                    placeholder="Ingresa tu contraseña">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Estado</label>
-                                <input type="string" step="any" id="restado" required class="form-control"
-                                    placeholder="Ingresa tu estado">
-                            </div>
-                            <div class="col-12 text-center">
-                                <input type="submit" class="btn btn-primary" value="Regitrarse">
-                                <p class="error text-danger"></p>
-                            </div>
-                        </form>
-                    </div>
+    <div class="modal" tabindex="-1" id="registrarmodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Registro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="container">
+                    <form id="formaregistrar">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                            <input type="text" id="rnombre" required class="form-control"
+                                placeholder="Ingresa tu nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Correo</label>
+                            <input type="email" id="rcorreo" required class="form-control"
+                                placeholder="Ingresa tu correo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+                            <input type="password" id="rcontrasena" required class="form-control"
+                                placeholder="Ingresa tu contraseña">
+                        </div>
+                        <div class="col-12 text-center">
+                            <input type="submit" class="btn btn-primary" value="Regitrarse">
+                            <p class="error text-danger"></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>

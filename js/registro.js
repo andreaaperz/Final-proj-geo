@@ -1,5 +1,4 @@
 class Registro {
-
     constructor(id, titulo, contenido, check1, check2, check3) {
         this.id = id;
         this.titulo = titulo;

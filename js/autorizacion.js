@@ -44,14 +44,14 @@ formaregistrate.addEventListener('submit', (e) => {
 
     auth.createUserWithEmailAndPassword(correo, contrasena).then(cred => {
         return db.collection('users').doc(cred.user.uid).set({
-            nombre: formaregistrate['rnombre'].value,
-            telefono: formaregistrate['restado'].value
+            nombre: formaregistrate['rnombre'].value
         });
     }).then(() => {
         $('#registrarmodal').modal('hide');
         formaregistrate.reset();
         formaregistrate.querySelector('.error').innerHTML = '';
     }).catch(err => {
+        console.log(err);
         formaregistrate.querySelector('.error').innerHTML = messageError(err.code);
     });
 }); 
