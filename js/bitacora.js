@@ -1,6 +1,4 @@
-window.onload = function () {
-    $(".card2:first").hide();
-};
+$(".card2:first").hide();
 
 var formulario = document.querySelector("#forma");
 
@@ -43,9 +41,7 @@ db.collection('pendientes').onSnapshot(snapshot => {
         if (change.type == 'added') {
             muestraRegistros(change.doc);
         } else if (change.type == 'removed') {
-            console.log(change.doc.id);
-            var valorid = document.getElementById(change.doc.id);
-            pendienteslista.removeChild(valorid);
+            $("#"+change.doc.id).remove();
         }
     });
 });
@@ -61,20 +57,19 @@ function muestraRegistros(doc) {
     borrar.textContent = "Borrar";
 
     var cards2 = $(".card2:first").clone()
-    $(".btneliminar").attr("id", registro.id);
     $(cards2).attr("id", registro.id);
     $(cards2).find(".card-title").html(registro.titulo);
     $(cards2).find(".card-text").html(registro.contenido);
     $(cards2).find("#item1").html(registro.check1);
     $(cards2).find("#item2").html(registro.check2);
     $(cards2).find("#item3").html(registro.check3);
-    $(cards2).find(".btneliminar").append(borrar);
+    $(cards2).find(".btn").on("click", (e) =>{
+        e.preventDefault();
+        console.log("hola from", registro.id)
+        registro.borrar(registro.id);
+    });
     $(cards2).show();
     $(cards2).appendTo($(".row"));
 
-    borrar.addEventListener('click', (e) => {
-        var id = e.target.parentElement.getAttribute("id");
-        registro.borrar(id);
-    })
 
 }
