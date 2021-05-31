@@ -68,6 +68,7 @@ entrarGoogle = () => {
 
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
+        window.location="home.html";
 
     }).catch(function (error) {
         console.log(error);
@@ -86,6 +87,7 @@ entrarFacebook = () => {
 
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
+        window.location="home.html";
 
     }).catch(function (error) {
         console.log(error);
