@@ -42,8 +42,6 @@ formulario.addEventListener('submit', (e) => {
 
 var pendienteslista = document.querySelector(".row");
 
-//console.log(firebase.auth().currentUser.uid)
-
 db.collection('pendientes').onSnapshot(snapshot => {
     var changes = snapshot.docChanges();
     changes.forEach(change => {
@@ -61,33 +59,36 @@ function muestraRegistros(doc) {
     var registro = new Registro(doc.id, doc.data().uid, doc.data().titulo, doc.data().contenido, doc.data().check1, doc.data().check2, doc.data().check3);
 
     $(".card2:first").hide();
+    console.log("check1 ", registro.check1, " check2 ", registro.check2, " check3 ", registro.check3  )
 
 
     var cards2 = $(".card2:first").clone()
     $(cards2).attr("id", registro.id);
     $(cards2).find(".card-title").html(registro.titulo);
     $(cards2).find(".card-text").html(registro.contenido);
-    if (registro.check1 == true) {
-        $("#item1").css("color", "black");
-    } else {
-        $("#item1").css("color", "#cfcfcf");
-    }
-
-    if (registro.check2 == true) {
-        $("#item2").css("color", "black");
-    } else {
-        $("#item2").css("color", "#cfcfcf");
-    }
-
-    if (registro.check3 == true) {
-        $("#item3").css("color", "black");
-    } else {
-        $("#item3").css("color", "#cfcfcf");
-    }
-
     $(cards2).find("#item1").html("Me bañé en menos de 10 minutos");
     $(cards2).find("#item2").html("No consumí carnes rojas");
     $(cards2).find("#item3").html("Regué las plantas en la noche");
+
+    if (registro.check1 === true) {
+        console.log("es verdadero")
+        $(cards2).find("#item1").css("color", "black");
+    } else if (registro.check1 === false) {
+        console.log("es falso")
+        $(cards2).find("#item1").css("color", "#cfcfcf");
+    }
+
+    if (registro.check2 === true) {
+        $(cards2).find("#item2").css("color", "black");
+    } else if (registro.check2 === false){
+        $(cards2).find("#item2").css("color", "#cfcfcf");
+    }
+
+    if (registro.check3 === true) {
+        $(cards2).find("#item3").css("color", "black");
+    } else if (registro.check3 === false) {
+        $(cards2).find("#item3").css("color", "#cfcfcf");
+    }
 
     $(cards2).find(".btn").on("click", (e) => {
         e.preventDefault();

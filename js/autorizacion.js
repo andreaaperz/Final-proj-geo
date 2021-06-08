@@ -51,7 +51,7 @@ formaregistrate.addEventListener('submit', (e) => {
         formaregistrate.reset();
         formaregistrate.querySelector('.error').innerHTML = '';
     }).catch(err => {
-        console.log(err);
+        console.log(err); 
         formaregistrate.querySelector('.error').innerHTML = messageError(err.code);
     });
 }); 
