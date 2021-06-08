@@ -1,6 +1,7 @@
 window.onload = function () {
     auth.onAuthStateChanged( user =>{
         if (user){
+            $('#no-bitacora').hide();
             $('#componentes').load("pages/bitacora.html");
         } else {
             window.location="index.html";
@@ -22,15 +23,23 @@ salir.addEventListener('click', (e) => {
 
 $('.navbar').on("click", "#loadMapas", function (e) {
     e.preventDefault();
-    $('#componentes').load("pages/mapas.html");
+    $('#componentes').hide(); 
+    $('#no-bitacora').show();
+    $('#no-bitacora').load("pages/mapas.html");
 });
 
 $('.navbar').on("click", "#loadTarjetas", function (e) {
     e.preventDefault();
-    $('#componentes').load("pages/cards.html");
+    $('#componentes').hide(); 
+    $('#no-bitacora').show();
+    $('#no-bitacora').load("pages/cards.html");
+    
 });
 
 $('.navbar').on("click", "#loadBitacora", function (e) {
     e.preventDefault();
-    $('#componentes').load("pages/bitacora.html");
+    $('#no-bitacora').load("pages/mapas.html #empty");
+    $('#no-bitacora').hide();
+    $('#componentes').show(); 
+
 });

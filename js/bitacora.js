@@ -51,7 +51,6 @@ db.collection('pendientes').onSnapshot(snapshot => {
     });
 });
 
-
 function muestraRegistros(doc) {
     var registro = new Registro(doc.id, doc.data().titulo, doc.data().contenido, doc.data().check1, doc.data().check2, doc.data().check3);
 
@@ -82,9 +81,9 @@ function muestraRegistros(doc) {
     $(cards2).find("#item1").html("Me bañé en menos de 10 minutos");
     $(cards2).find("#item2").html("No consumí carnes rojas");
     $(cards2).find("#item3").html("Regué las plantas en la noche");
+
     $(cards2).find(".btn").on("click", (e) => {
         e.preventDefault();
-        console.log("hola from", registro.id)
         registro.borrar(registro.id);
     });
     $(cards2).show();
