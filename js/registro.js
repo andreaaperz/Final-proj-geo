@@ -1,6 +1,7 @@
 class Registro {
-    constructor(id, titulo, contenido, check1, check2, check3) {
+    constructor(id, uid, titulo, contenido, check1, check2, check3) {
         this.id = id;
+        this.uid = uid;
         this.titulo = titulo;
         this.contenido = contenido;
         this.check1 = check1;
@@ -11,6 +12,7 @@ class Registro {
     agregar() {
         db.collection('pendientes').add({
             titulo: this.titulo,
+            uid: this.uid,
             contenido: this.contenido,
             check1: this.check1,
             check2: this.check2,

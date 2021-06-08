@@ -27,24 +27,30 @@ formulario.addEventListener('submit', (e) => {
         check3 = false;
     }
 
-    var registro = new Registro(null, formulario.titulo.value, formulario.contenido.value, check1, check2, check3);
-    if (formulario.titulo.value || formulario.contenido.value) {
-        registro.agregar();
-        formulario.titulo.value = '';
-        formulario.contenido.value = '';
-        $(".form-check-input").prop("checked", false);
-    } else {
-        alert("Aunque sea llena el título y el contenido oye :c");
-    }
+    auth.onAuthStateChanged(user => {
+        var registro = new Registro(null, user.uid, formulario.titulo.value, formulario.contenido.value, check1, check2, check3);
+        if (formulario.titulo.value || formulario.contenido.value) {
+            registro.agregar();
+            formulario.titulo.value = '';
+            formulario.contenido.value = '';
+            $(".form-check-input").prop("checked", false);
+        } else {
+            alert("Aunque sea llena el título y el contenido oye :c");
+        }
+    })
 });
 
 var pendienteslista = document.querySelector(".row");
+
+//console.log(firebase.auth().currentUser.uid)
 
 db.collection('pendientes').onSnapshot(snapshot => {
     var changes = snapshot.docChanges();
     changes.forEach(change => {
         if (change.type == 'added') {
-            muestraRegistros(change.doc);
+            if (change.doc.data().uid == firebase.auth().currentUser.uid) {
+                muestraRegistros(change.doc);
+            }
         } else if (change.type == 'removed') {
             $("#" + change.doc.id).remove();
         }
@@ -52,9 +58,10 @@ db.collection('pendientes').onSnapshot(snapshot => {
 });
 
 function muestraRegistros(doc) {
-    var registro = new Registro(doc.id, doc.data().titulo, doc.data().contenido, doc.data().check1, doc.data().check2, doc.data().check3);
+    var registro = new Registro(doc.id, doc.data().uid, doc.data().titulo, doc.data().contenido, doc.data().check1, doc.data().check2, doc.data().check3);
 
     $(".card2:first").hide();
+
 
     var cards2 = $(".card2:first").clone()
     $(cards2).attr("id", registro.id);
@@ -77,7 +84,7 @@ function muestraRegistros(doc) {
     } else {
         $("#item3").css("color", "#cfcfcf");
     }
-    
+
     $(cards2).find("#item1").html("Me bañé en menos de 10 minutos");
     $(cards2).find("#item2").html("No consumí carnes rojas");
     $(cards2).find("#item3").html("Regué las plantas en la noche");
